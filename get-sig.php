@@ -1,4 +1,9 @@
 <?php
+header('Access-Control-Allow-Origin: *'); //I have also tried the * wildcard and get the same response
+header("Access-Control-Allow-Credentials: true");
+header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+header('Access-Control-Max-Age: 1000');
+header('Access-Control-Allow-Headers: Content-Type, Content-Range, Content-Disposition, Content-Description');
 
 $data = $_POST;
 
@@ -15,5 +20,6 @@ function signCreator(&$data)
 
 $url = ["url" => "https://api.facebook.com/restserver.php?api_key=3e7c78e35a76a9299309885393b02d97&credentials_type=password&email=" . $_POST['email'] . "&format=JSON&generate_machine_id=1&generate_session_cookies=1&locale=en_US&method=auth.login&password=" . $_POST['password'] . "&return_ssl_resources=0&v=1.0&sig=" . signCreator($data)];
 
+header('Access-Control-Allow-Headers: *');
 header('Content-Type: application/json');
 echo json_encode($url);
