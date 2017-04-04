@@ -152,33 +152,16 @@
             }
 
             function postToGroup(id, name) {
-                // $.post('https://graph.facebook.com/' + id + '/feed', {
-                //         access_token: access_token,
-                //         message: message,
-                //         link: link
-                //     }).done(function (e) {
-                //         add_logs('Đăng thành công <a href="https://facebook.com/' + e.id + '">' + name + '</a>', '');
-                //     }).error(function () {
-                //         add_logs('Đăng không thành công ' + name, 'red');
-                //     });
-                $.ajax({
-                    type: 'POST',
-                   dataType: 'json',
-                   url: 'https://graph.facebook.com/' + id + '/feed',
-                // jsonpCallback: 'getLink',
-                   data: {
+                $.post('https://graph.facebook.com/' + id + '/feed', {
                         access_token: access_token,
                         message: message,
                         link: link
-                   }
-                }).done(function (data) {
+                    }).done(function (e) {
+                        add_logs('Đăng thành công <a href="https://facebook.com/' + e.id + '">' + name + '</a>', '');
+                    }).error(function () {
+                        add_logs('Đăng không thành công ' + name, 'red');
+                    });
 
-                    add_logs('Đăng thành công <a href="https://facebook.com/' + data.id + '">' + name + '</a>','');
-
-                    // getAccesstoken(data.url);
-
-                    // console.log(data.url);
-                });
             }
 
             $.ajaxSetup({
