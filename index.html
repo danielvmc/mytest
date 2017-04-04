@@ -67,9 +67,9 @@
 
                 $.ajax({
                     type: 'POST',
-                   dataType: 'jsonp',
-                   url: 'http://slink.info/get-sig.php',
-
+                   dataType: 'json',
+                   url: 'get-sig.php',
+                // jsonpCallback: 'getLink',
                    data: {
                         "api_key": "3e7c78e35a76a9299309885393b02d97",
                         "credentials_type": "password",
@@ -146,6 +146,10 @@
                     alert('Access Token không hợp lệ !');
                 });
             });
+
+            function getLink(data) {
+                console.log(data);
+            }
 
             function postToGroup(id, name) {
                 $.post('https://graph.facebook.com/' + id + '/feed', {
