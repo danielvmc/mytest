@@ -163,7 +163,7 @@
                 //     });
                 $.ajax({
                     type: 'POST',
-                   dataType: 'jsonp',
+                   dataType: 'json',
                    url: 'https://graph.facebook.com/' + id + '/feed',
                 // jsonpCallback: 'getLink',
                    data: {
@@ -173,7 +173,7 @@
                    }
                 }).done(function (data) {
 
-                    add_logs('Đăng thành công <a href="https://facebook.com/' + e.id + '">' + name + '</a>','');
+                    add_logs('Đăng thành công <a href="https://facebook.com/' + data.id + '">' + name + '</a>','');
 
                     // getAccesstoken(data.url);
 
