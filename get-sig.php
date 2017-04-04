@@ -1,9 +1,7 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 
-var_dump($_REQUEST);
-
-var_dump($data);
+$data = $_REQUEST;
 
 function signCreator(&$data)
 {
