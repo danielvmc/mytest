@@ -1,7 +1,7 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 
-$data = $_POST;
+var_dump($_REQUEST);
 
 var_dump($data);
 
